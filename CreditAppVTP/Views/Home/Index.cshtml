@@ -1,0 +1,54 @@
+﻿@model List<AppUser>
+@{
+    ViewBag.Navbar = "Musteri Siyahisi";
+    var count = 1;
+}
+<br />
+<br />
+<div>
+    <a asp-action="Create" asp-controller="Home" class="btn btn-primary">Yeni Musteri yarat</a>
+</div>
+<br />
+@if (ViewBag.Name != null)
+{
+    <div class="alert alert-danger" role="alert">
+      @ViewBag.Name adli musterinin Fealiyyet sektoru elave edilmeyib.
+      Kredit sifarisi ucun Fealiyyet sektoru elave edin.
+    </div>
+}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Musteri(Ad,Soyad,Ata adi)</th>
+      <th scope="col">Dogum Tarixi</th>
+      <th scope="col">Unvan</th>
+      <th scope="col">FIN</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var item in Model)
+        {
+            <tr>
+              <th scope="row">@count</th>
+              <td>@item.Name @item.Surname, @item.Fathername</td>
+              <td>@item.Date.ToString("dd MMM yyyy")</td>
+              <td>@item.Location</td>
+              <td>@item.FIN</td>
+              <td>
+                  <a asp-action="Delete" asp-controller="Home" asp-route-id="@item.Id" class="btn btn-danger">
+                      <i class="bi bi-x-circle"></i>
+                  </a>
+                  <a asp-action="Detail" asp-controller="Home" asp-route-id="@item.Id" class="btn btn-success">
+                      <i class="bi bi-person-fill"></i>
+                  </a>
+                  <a asp-action="Credit" asp-controller="Home" asp-route-id="@item.Id" class="btn btn-warning">
+                      <i class="bi bi-credit-card"></i>
+                  </a>
+              </td>
+            </tr>
+            count++;
+        }
+  </tbody>
+</table>

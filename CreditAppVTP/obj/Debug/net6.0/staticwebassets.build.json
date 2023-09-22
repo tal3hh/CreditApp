@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "MddLK0olH6IBqoS7Wws2drvDG8GA/X4QMEXEYdfg9Pk=",
+  "Source": "CreditAppVTP",
+  "BasePath": "_content/CreditAppVTP",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CreditAppVTP\\wwwroot",
+      "Source": "CreditAppVTP",
+      "ContentRoot": "C:\\Users\\HP\\Desktop\\C#\\PROJE\\VTP23\\CreditAppVTP\\CreditAppVTP\\wwwroot\\",
+      "BasePath": "_content/CreditAppVTP",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}

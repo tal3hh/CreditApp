@@ -1,0 +1,39 @@
+﻿@model (Work work,AppUser user)
+@{
+    ViewBag.Navbar = Model.user.Name + " adli musetrinin fealiyyet sektoru";
+}
+
+<form asp-controller="Home" asp-action="WorkAdd" method="post">
+  <input type="hidden" asp-for="@Model.work.AppUserId" value="@Model.user.Id"/>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Fealiyyet sektoru:</label>
+    <input asp-for="@Model.work.WorkName" class="form-control">
+    <span asp-validation-for="@Model.work.WorkName" class="form-text" style="color:red"></span>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Maas:</label>
+    <input asp-for="@Model.work.Salary" class="form-control">
+    <span asp-validation-for="@Model.work.Salary" class="form-text" style="color:red"></span>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Tecrube(il):</label>
+    <input asp-for="@Model.work.ExpYear" type="number" class="form-control">
+    <span asp-validation-for="@Model.work.ExpYear" class="form-text" style="color:red"></span>
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Tecrube(ay):</label>
+    <input asp-for="@Model.work.ExpMonth" type="number" class="form-control">
+    <span asp-validation-for="@Model.work.ExpMonth" class="form-text" style="color:red"></span>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Region:</label>
+    <input asp-for="@Model.work.Region" class="form-control">
+    <span asp-validation-for="@Model.work.Region" class="form-text" style="color:red"></span>
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Biznes unvani:</label>
+    <input asp-for="@Model.work.Adress" class="form-control">
+    <span asp-validation-for="@Model.work.Adress" class="form-text" style="color:red"></span>
+  </div>
+  <button type="submit" class="btn btn-primary">Yarat</button>
+</form>

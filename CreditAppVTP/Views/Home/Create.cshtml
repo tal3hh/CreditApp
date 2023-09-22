@@ -1,0 +1,58 @@
+﻿@model AppUser
+@{
+    ViewBag.Navbar = "Yeni Musteri Elave Et";
+}
+
+<form asp-controller="Home" asp-action="Create" method="post">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Ad:</label>
+    <input asp-for="@Model.Name" class="form-control">
+    <span asp-validation-for="@Model.Name" class="form-text" style="color:red"></span>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Soyad:</label>
+    <input asp-for="@Model.Surname" class="form-control">
+    <span asp-validation-for="@Model.Surname" class="form-text" style="color:red"></span>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Ata adi:</label>
+    <input asp-for="@Model.Fathername" class="form-control">
+    <span asp-validation-for="@Model.Fathername" class="form-text" style="color:red"></span>
+  </div>
+    <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Dogum tarixi:</label>
+    <input asp-for="@Model.Date" type="date" class="form-control">
+    <span asp-validation-for="@Model.Date" class="form-text" style="color:red"></span>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Yasayis unvani:</label>
+    <input asp-for="@Model.Location" class="form-control">
+    <span asp-validation-for="@Model.Location" class="form-text" style="color:red"></span>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Seria no:</label>
+    <input asp-for="@Model.Seria" class="form-control">
+    <span asp-validation-for="@Model.Seria" class="form-text" style="color:red"></span>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">FIN:</label>
+    <input asp-for="@Model.FIN" class="form-control">
+    <span asp-validation-for="@Model.FIN" class="form-text" style="color:red"></span>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Qeydiyyat yeri:</label>
+    <input asp-for="@Model.RegisAdress" class="form-control">
+    <span asp-validation-for="@Model.RegisAdress" class="form-text" style="color:red"></span>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Mobil:</label>
+    <input asp-for="@Model.Mobil" type="number" class="form-control">
+    <span asp-validation-for="@Model.Mobil" class="form-text" style="color:red"></span>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Ev nom:</label>
+    <input asp-for="@Model.HomeNum" type="num" class="form-control">
+    <span asp-validation-for="@Model.HomeNum" class="form-text" style="color:red"></span>
+  </div>
+  <button type="submit" class="btn btn-primary">Yarat</button>
+</form>

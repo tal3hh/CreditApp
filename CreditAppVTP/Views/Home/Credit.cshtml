@@ -1,0 +1,100 @@
+﻿@model (Credit credit,AppUser user, Credit creditold)
+@{
+    ViewBag.Navbar = "Kredit sifarisi yarat";
+}
+
+<br />
+<br />
+<div class="row">
+    <div class="col-md-7 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body d-flex flex-column">
+                <h4 class="card-title">Kredit gotur</h4>
+                <form asp-controller="Home" asp-action="Credit" method="post">
+                      <input type="hidden" asp-for="@Model.credit.AppUserId" value="@Model.user.Id"/>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Meqsed:</label>
+                        <input asp-for="@Model.credit.Purpose" class="form-control">
+                        <span asp-validation-for="@Model.credit.Purpose" class="form-text" style="color:red"></span>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Valyuta:</label>
+                        <select asp-for="@Model.credit.Valyuta" asp-items="Html.GetEnumSelectList<Currency>()" class="form-control">
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Mebleg:</label>
+                        <input asp-for="@Model.credit.Price" type="number" class="form-control">
+                        <span asp-validation-for="@Model.credit.Price" class="form-text" style="color:red"></span>
+                      </div>
+                        <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Nece ay:</label>
+                        <input asp-for="@Model.credit.Month" type="number" class="form-control">
+                        <span asp-validation-for="@Model.credit.Month" class="form-text" style="color:red"></span>
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Faiz:</label>
+                        <input asp-for="@Model.credit.Interest" class="form-control">
+                        <span asp-validation-for="@Model.credit.Interest" class="form-text" style="color:red"></span>
+                      </div>
+                      <br />
+                      <button type="submit" class="btn btn-primary">Hesabla</button>
+                      <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Ana Sehife</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5 grid-margin stretch-card" >
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">En son odenis cedveli</h4>
+                <br />
+                @if(Model.creditold == null)
+                {
+                    <div class="form-group row">
+                        <div class="col-sm-9">
+                            <p class="form-control">
+                                Daxil etdiyiniz kredit melumatlari burda gosterilecek.
+                            </p>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    var total = Model.creditold.Price;
+                    var faiz = Model.creditold.Interest;
+                    var ay = Model.creditold.Month;
+                    int ayliq = (int)(total*faiz / 100);
+                    int borc = (int)(total + ayliq);
+                    ayliq = (int)(ayliq + total);
+                    ayliq = ayliq / ay;
+                    
+
+                    <p>
+                        <b>Umumi borc:</b> @borc @Model.creditold.Valyuta.ToString()<br />
+                        <b>Ayliq odenis:</b> @ayliq @Model.creditold.Valyuta.ToString()
+                    </p>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th>Ayliq odenis</th>
+                          <th>Borcun qaligi</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @for (int i = 0; i < Model.creditold.Month; i++)
+                            {
+                                <tr>
+                                  <th scope="row">@(i+1)</th>
+                                  <th>@ayliq</th>
+                                  <th>@(borc = borc - ayliq)</th>
+                                </tr>
+                            }
+                      </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>

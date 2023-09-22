@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33424.131
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditAppVTP", "CreditAppVTP\CreditAppVTP.csproj", "{68AE197A-B20A-4AD2-8B59-8771D8B77597}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68AE197A-B20A-4AD2-8B59-8771D8B77597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68AE197A-B20A-4AD2-8B59-8771D8B77597}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68AE197A-B20A-4AD2-8B59-8771D8B77597}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68AE197A-B20A-4AD2-8B59-8771D8B77597}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC4A2266-58B0-4EBD-8D66-B4FD7A44166B}
+	EndGlobalSection
+EndGlobal
